@@ -1,9 +1,12 @@
 from __future__ import annotations
 import argparse
 from pathlib import Path
-from .processing import RankingsLoader, WinnersLosersProcessor
 from .loader import RankingsLoader
-from .processors import WinnersLosersProcessor, MoveSetChangesProcessor
+from .processors import (
+    MoveSetChangesProcessor,
+    TypeTrendsProcessor,
+    WinnersLosersProcessor,
+)
 
 LEAGUE_ALIASES = {
     "great": "great",
@@ -30,13 +33,13 @@ def parse_args():
         "--top",
         type=int,
         default=25,
-        help="How many winners/losers to show (default 25)",
+        help="How many rows to show (winners/losers or rising/falling types). Default 25.",
     )
     p.add_argument(
         "--min-delta",
         type=float,
         default=0.1,
-        help="Minimum absolute score delta to include (default 0.1)",
+        help="Minimum absolute score delta to include (applies to selected processor). Default 0.1.",
     )
     p.add_argument(
         "--old-top-n",
@@ -52,15 +55,32 @@ def parse_args():
     )
     p.add_argument(
         "--processor",
-        choices=["winners", "movesets"],
+        choices=["winners", "movesets", "types"],
         default="winners",
-        help="Which analysis to run: winners (default) or movesets",
+        help=(
+            "Select analysis: "
+            "winners (per-Pokémon score deltas), "
+            "movesets (move set changes among top N by new score), "
+            "types (aggregate rising/falling types)."
+        ),
     )
     p.add_argument(
         "--movesets-top-n",
         type=int,
         default=50,
         help="Top N (by new score) to inspect for move set changes when --processor movesets (default 50)",
+    )
+    p.add_argument(
+        "--types-old-top-n",
+        type=int,
+        default=None,
+        help="When --processor types: limit old dataset aggregation to its top N by score",
+    )
+    p.add_argument(
+        "--types-new-top-n",
+        type=int,
+        default=None,
+        help="When --processor types: limit new dataset aggregation to its top N by score",
     )
     return p.parse_args()
 
@@ -87,8 +107,15 @@ def main():
             old_top_n_filter=args.old_top_n,
             include_outside_meta_winners=args.include_emerging,
         )
-    else:
+    elif args.processor == "movesets":
         processor = MoveSetChangesProcessor(top_n=args.movesets_top_n)
+    elif args.processor == "types":
+        processor = TypeTrendsProcessor(
+            top_n=args.top,
+            min_abs_delta=args.min_delta,
+            old_top_n=args.types_old_top_n,
+            new_top_n=args.types_new_top_n,
+        )
     report = processor.process(old_ds, new_ds)
     print(report)
 
