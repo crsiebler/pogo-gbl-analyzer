@@ -42,8 +42,8 @@ For each league there is an `*_old.csv` (previous snapshot) and an `*_new.csv` (
 | `RankingDataset` | Collection of records for a specific league. |
 | `RankingsLoader` | Validates & loads a ranking CSV into a dataset. |
 | `BaseRankingProcessor` | Protocol (interface) describing a processor. |
-| `WinnersLosersProcessor` | Computes score deltas (biggest winners/losers, emerging picks). |
-| `MoveSetChangesProcessor` | Lists move set changes (Fast/Charged) for top N current meta Pokémon. |
+| `WinnersLosersProcessor` | Computes score deltas (biggest winners / losers) between snapshots. |
+| `MoveSetChangesProcessor` | Lists move set changes (Fast/Charged) for high‑ranking current Pokémon. |
 
 The modular layout (`models.py`, `loader.py`, and the `processors/` package) isolates responsibilities so adding new analyses is straightforward.
 
@@ -53,84 +53,77 @@ Run via the module form:
 python -m pogo_gbl_analyzer.main OLD_CSV NEW_CSV great
 ```
 
-A `Makefile` provides shortcuts assuming the default file naming (see `PROCESSOR` variable below):
-```bash
-make great              # Uses cp1500 old/new files
-make ultra TOP=40       # Override number of rows (winners or types)
-make master PROCESSOR=types TOP=15  # Show rising/falling types
-make great OLD_TOP_N=50 EMERGING=1  # Winners processor with meta restriction + emerging
-```
+The `Makefile` offers shortcuts for the bundled sample data (variable names shown may still reference earlier flag names; see the unified flags below for current usage).
 
-## CLI Arguments
+### Unified CLI Arguments
+The interface was simplified to a small, consistent set of flags. Deprecated flags such as `--top`, `--old-top-n`, `--include-emerging`, `--movesets-top-n`, `--types-old-top-n`, and `--types-new-top-n` were removed.
+
 | Argument | Description |
 |----------|-------------|
 | `old` | Path to previous ("old") CSV export. |
 | `new` | Path to current ("new") CSV export. |
 | `league` | One of `great`, `ultra`, `master` (aliases: `1500`, `2500`, `10000`). |
-| `--top N` | Number of rows to list (Pokémon winners/losers or types). Default 25. |
-| `--min-delta D` | Minimum absolute score change to report (applies to Pokémon or type aggregate). Default 0.1. |
-| `--old-top-n N` | Restrict comparison universe to the old top N (meta focus). |
-| `--include-emerging` | When filtering, also list entrants outside the old meta that now meet the previous threshold. |
-| `--processor {winners,movesets,types}` | Select analysis: per-Pokémon deltas, move set changes, or aggregate type trends. |
-| `--movesets-top-n N` | (movesets) Top N (by new score) to inspect for move changes (default 50). |
-| `--types-old-top-n N` | (types) Limit aggregation to old snapshot's top N by score. |
-| `--types-new-top-n N` | (types) Limit aggregation to new snapshot's top N by score. |
+| `--processor {winners,movesets,types}` | Select analysis: Pokémon deltas, move set changes, or type trends. Default `winners`. |
+| `--analyze-top-n N` | Limit analysis scope to the top N Pokémon of each snapshot (winners uses NEW only; movesets uses NEW; types applies to BOTH old & new). If omitted: winners uses full dataset; movesets defaults to 50 internally; types uses full snapshots. |
+| `--output-top-n N` | Number of rows (winners list, losers list, type rows, or move changes) to display. Default 25. |
+| `--min-delta D` | Minimum absolute score change to include (applies to winners & types). Default 0.1. |
 
-### Emerging Winners Logic
-When `--old-top-n` is supplied the minimum score among that subset defines the previous meta threshold. With `--include-emerging`, Pokémon outside the original subset are included if:
-1. Their new score ≥ old threshold; and
-2. They improved by at least `--min-delta` (or are brand new with score ≥ threshold).
+### Notes
+* The previous "emerging" meta concept was removed for simplicity.
+* Move set comparison ignores charged move ordering (treats them as an unordered set).
+* Dual‑typed Pokémon contribute their score to both types in type trend aggregation.
 
 ## Example Runs
-Great League basic run:
+Basic Great League winners/losers (show 20 rows each):
 ```bash
 python -m pogo_gbl_analyzer.main \
   data/cp1500_all_overall_rankings_old.csv \
   data/cp1500_all_overall_rankings_new.csv \
-  great --top 20
+  great --output-top-n 20
 ```
 
-Ultra League with meta restriction & emerging:
+Move set changes among top 60 Ultra League Pokémon (show up to 30 changes):
 ```bash
 python -m pogo_gbl_analyzer.main \
   data/cp2500_all_overall_rankings_old.csv \
   data/cp2500_all_overall_rankings_new.csv \
-  ultra --old-top-n 50 --include-emerging --min-delta 0.2
+  ultra --processor movesets --analyze-top-n 60 --output-top-n 30
 ```
 
-Master League example:
+Type trends focusing on top 100 of both snapshots, displaying top 15 rising/falling types with a 1.0 min delta filter:
 ```bash
 python -m pogo_gbl_analyzer.main \
   data/cp10000_all_overall_rankings_old.csv \
   data/cp10000_all_overall_rankings_new.csv \
-  master --top 30
+  master --processor types --analyze-top-n 100 --output-top-n 15 --min-delta 1.0
 ```
 
 ## Processors
 
 ### WinnersLosersProcessor
-Computes individual Pokémon score deltas, showing biggest winners and losers. Optional meta restriction (`--old-top-n`) plus emerging entrants (`--include-emerging`).
+Computes individual Pokémon score deltas, showing biggest winners and losers. Use `--analyze-top-n` to restrict to the top portion of the NEW snapshot (otherwise all Pokémon are considered). Results are truncated with `--output-top-n`.
 
 ### MoveSetChangesProcessor
-Lists Fast / Charged move set changes among the top N Pokémon in the new snapshot (by score). Charged move order is ignored; additions/removals are reported. Controlled by `--movesets-top-n`.
+Lists Fast / Charged move set changes among high‑ranking Pokémon in the NEW snapshot. Use `--analyze-top-n` to define how many of the top new Pokémon to inspect (default internal fallback of 50 if omitted). Charged move ordering is ignored; additions and removals are reported. Control output length with `--output-top-n`.
 
 ### TypeTrendsProcessor
-Aggregates total score per type (each Pokémon contributes its score to both types if dual-typed) and reports rising and falling types based on aggregate score delta and counts. Controlled by `--top` and filtered by `--min-delta`.
+Aggregates total score per type and reports rising and falling types based on aggregate score delta and counts. Use `--analyze-top-n` to restrict both snapshots to their respective top N before aggregation. Use `--output-top-n` to limit displayed rising / falling lists and `--min-delta` to suppress small movements.
 
-### Example: Move set changes (top 40 Master League)
+### Additional Examples
+Move set changes (top 40 Master League, show 25):
 ```bash
 python -m pogo_gbl_analyzer.main \
   data/cp10000_all_overall_rankings_old.csv \
   data/cp10000_all_overall_rankings_new.csv \
-  master --processor movesets --movesets-top-n 40
+  master --processor movesets --analyze-top-n 40 --output-top-n 25
 ```
 
-### Example: Type trends (Great League)
+Type trends (Great League, unrestricted full snapshots, show 10):
 ```bash
 python -m pogo_gbl_analyzer.main \
   data/cp1500_all_overall_rankings_old.csv \
   data/cp1500_all_overall_rankings_new.csv \
-  great --processor types --types-old-top-n 100 --types-new-top-n 100 --top 15 --min-delta 1.0
+  great --processor types --output-top-n 10
 ```
 
 ## Extending the Analyzer
