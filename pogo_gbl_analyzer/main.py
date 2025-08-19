@@ -3,7 +3,7 @@ import argparse
 from pathlib import Path
 from .processing import RankingsLoader, WinnersLosersProcessor
 from .loader import RankingsLoader
-from .processors import WinnersLosersProcessor
+from .processors import WinnersLosersProcessor, MoveSetChangesProcessor
 
 LEAGUE_ALIASES = {
     "great": "great",
@@ -50,6 +50,18 @@ def parse_args():
         action="store_true",
         help="When using --meta-top-n also list emerging winners outside old meta that now reach meta score threshold",
     )
+    p.add_argument(
+        "--processor",
+        choices=["winners", "movesets"],
+        default="winners",
+        help="Which analysis to run: winners (default) or movesets",
+    )
+    p.add_argument(
+        "--movesets-top-n",
+        type=int,
+        default=50,
+        help="Top N (by new score) to inspect for move set changes when --processor movesets (default 50)",
+    )
     return p.parse_args()
 
 
@@ -68,12 +80,15 @@ def main():
     old_ds = loader.load_csv(args.old, league)
     new_ds = loader.load_csv(args.new, league)
 
-    processor = WinnersLosersProcessor(
-        top_n=args.top,
-        min_abs_delta=args.min_delta,
-        old_top_n_filter=args.old_top_n,
-        include_outside_meta_winners=args.include_emerging,
-    )
+    if args.processor == "winners":
+        processor = WinnersLosersProcessor(
+            top_n=args.top,
+            min_abs_delta=args.min_delta,
+            old_top_n_filter=args.old_top_n,
+            include_outside_meta_winners=args.include_emerging,
+        )
+    else:
+        processor = MoveSetChangesProcessor(top_n=args.movesets_top_n)
     report = processor.process(old_ds, new_ds)
     print(report)
 

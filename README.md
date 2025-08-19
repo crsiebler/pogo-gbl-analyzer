@@ -42,21 +42,18 @@ For each league there is an `*_old.csv` (previous snapshot) and an `*_new.csv` (
 | `RankingsLoader` | Validates & loads a ranking CSV into a dataset. |
 | `BaseRankingProcessor` | Protocol (interface) describing a processor. |
 | `WinnersLosersProcessor` | Computes score deltas (biggest winners/losers, emerging picks). |
+| `MoveSetChangesProcessor` | Lists move set changes (Fast/Charged) for top N current meta Pokémon. |
 
 `processing.py` contains both the data abstractions and the first concrete processor. You can add more processors later (e.g. usage shift, typing distribution) by implementing the protocol.
 Separated modules: `models.py`, `loader.py`, and `processors/` package isolate responsibilities for easier extension.
 
 ## Script & CLI
-Two interchangeable entry points expose the comparison functionality:
+Entry point exposing the comparison functionality:
 
-1. Module form (always available):
-   ```bash
-   python -m pogo_gbl_analyzer.main OLD_CSV NEW_CSV great
-   ```
-2. Convenience script:
-   ```bash
-   ./scripts/compare_rankings.py OLD_CSV NEW_CSV ultra --top 40
-   ```
+Module form (always available):
+```bash
+python -m pogo_gbl_analyzer.main OLD_CSV NEW_CSV great
+```
 
 A `Makefile` provides shortcuts assuming the default file naming:
 ```bash
@@ -65,7 +62,7 @@ make ultra TOP=40       # Override number of winners/losers
 make master OLD_TOP_N=50 EMERGING=1  # Focus on old top 50 + show emerging
 ```
 
-## CLI Arguments
+## CLI Arguments (core + winners processor)
 | Argument | Description |
 |----------|-------------|
 | `old` | Path to previous ("old") CSV export. |
@@ -75,6 +72,8 @@ make master OLD_TOP_N=50 EMERGING=1  # Focus on old top 50 + show emerging
 | `--min-delta D` | Minimum absolute score change to report (default 0.1). |
 | `--old-top-n N` | Restrict comparison universe to the old top N (meta focus). |
 | `--include-emerging` | When filtering, also list entrants outside the old meta that now meet the previous threshold. |
+| `--processor {winners|movesets}` | Select analysis type (default winners). |
+| `--movesets-top-n N` | (movesets) Top N (by new score) to inspect for move changes (default 50). |
 
 ### Emerging Winners Logic
 When `--old-top-n` is supplied the minimum score among that subset defines the previous meta threshold. With `--include-emerging`, Pokémon outside the original subset are included if:
@@ -98,12 +97,20 @@ python -m pogo_gbl_analyzer.main \
   ultra --old-top-n 50 --include-emerging --min-delta 0.2
 ```
 
-Master League via script:
+Master League example:
 ```bash
-./scripts/compare_rankings.py \
+python -m pogo_gbl_analyzer.main \
   data/cp10000_all_overall_rankings_old.csv \
   data/cp10000_all_overall_rankings_new.csv \
   master --top 30
+```
+
+Move set changes (top 40 Master League):
+```bash
+python -m pogo_gbl_analyzer.main \
+  data/cp10000_all_overall_rankings_old.csv \
+  data/cp10000_all_overall_rankings_new.csv \
+  master --processor movesets --movesets-top-n 40
 ```
 
 ## Extending the Analyzer

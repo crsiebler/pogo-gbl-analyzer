@@ -14,6 +14,8 @@ TOP ?= 25
 MIN_DELTA ?= 0.1
 OLD_TOP_N ?=
 EMERGING ?= 0
+PROCESSOR ?= winners   # winners | movesets
+MOVESETS_TOP_N ?= 50
 
 # Build optional flags
 ifdef OLD_TOP_N
@@ -33,7 +35,7 @@ MASTER_NEW ?= $(DATA_DIR)/cp10000_all_overall_rankings_new.csv
 
 # Helper macro
 define run_compare
-	$(PYTHON) -m $(MODULE) $(1) $(2) $(3) --top $(TOP) --min-delta $(MIN_DELTA) $(OLD_TOP_FLAG) $(EMERGING_FLAG)
+	$(PYTHON) -m $(MODULE) $(1) $(2) $(3) --top $(TOP) --min-delta $(MIN_DELTA) $(OLD_TOP_FLAG) $(EMERGING_FLAG) --processor $(PROCESSOR) --movesets-top-n $(MOVESETS_TOP_N)
 endef
 
 .PHONY: help great ultra master all
@@ -44,10 +46,11 @@ help:
 	@echo "  make ultra   - Compare Ultra League (2500 CP) rankings"
 	@echo "  make master  - Compare Master League (10000 CP) rankings"
 	@echo ""
-	@echo "Override variables: TOP MIN_DELTA OLD_TOP_N EMERGING=1"
+	@echo "Override variables: TOP MIN_DELTA OLD_TOP_N EMERGING=1 PROCESSOR=winner|movesets MOVESETS_TOP_N"
 	@echo "Examples:"
 	@echo "  make ultra TOP=40 MIN_DELTA=0.2"
 	@echo "  make master OLD_TOP_N=50 EMERGING=1"
+	@echo "  make master PROCESSOR=movesets MOVESETS_TOP_N=60"
 
 # Individual league runs
 great:
