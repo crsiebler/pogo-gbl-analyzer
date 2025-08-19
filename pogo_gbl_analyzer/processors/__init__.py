@@ -1,9 +1,11 @@
 from .base import BaseRankingProcessor
-from .winners_losers import WinnersLosersProcessor
 from .move_changes import MoveSetChangesProcessor
+from .type_trends import TypeTrendsProcessor
+from .winners_losers import WinnersLosersProcessor
 
 __all__ = [
     "BaseRankingProcessor",
-    "WinnersLosersProcessor",
     "MoveSetChangesProcessor",
+    "TypeTrendsProcessor",
+    "WinnersLosersProcessor",
 ]
