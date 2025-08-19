@@ -21,15 +21,13 @@ class TypeTrendsProcessor:
 
     def __init__(
         self,
-        top_n: int = 10,
+        output_top_n: int = 10,
         min_abs_delta: float = 0.5,
-        old_top_n: int | None = None,
-        new_top_n: int | None = None,
+        analyze_top_n: int | None = None,
     ):
-        self.top_n = top_n
+        self.output_top_n = output_top_n
         self.min_abs_delta = min_abs_delta
-        self.old_top_n = old_top_n
-        self.new_top_n = new_top_n
+        self.analyze_top_n = analyze_top_n
 
     def process(self, old: RankingDataset, new: RankingDataset) -> str:
         # Accumulate scores and counts.
@@ -57,13 +55,12 @@ class TypeTrendsProcessor:
 
         old_iter = old.records.values()
         new_iter = new.records.values()
-        if self.old_top_n is not None:
+        if self.analyze_top_n is not None:
             old_iter = sorted(old_iter, key=lambda r: r.score, reverse=True)[
-                : self.old_top_n
+                : self.analyze_top_n
             ]
-        if self.new_top_n is not None:
             new_iter = sorted(new_iter, key=lambda r: r.score, reverse=True)[
-                : self.new_top_n
+                : self.analyze_top_n
             ]
 
         for rec in old_iter:
@@ -89,25 +86,22 @@ class TypeTrendsProcessor:
         rising.sort(key=lambda x: x[3], reverse=True)
         falling.sort(key=lambda x: x[3])
 
-        scope_parts: List[str] = []
-        if self.old_top_n is not None:
-            scope_parts.append(f"old top {self.old_top_n}")
-        if self.new_top_n is not None:
-            scope_parts.append(f"new top {self.new_top_n}")
-        scope_suffix = " (" + ", ".join(scope_parts) + ")" if scope_parts else ""
+        scope_suffix = (
+            f" (top {self.analyze_top_n})" if self.analyze_top_n is not None else ""
+        )
         lines: List[str] = [
             f"League: {new.league}",
             f"Type Trends (aggregate score deltas){scope_suffix}",
         ]
         lines.append("")
-        rising_slice = rising[: self.top_n]
+        rising_slice = rising[: self.output_top_n]
         lines.append(f"Rising Types ({len(rising_slice)} Total)")
         for t, o, n, delta, co, cn in rising_slice:
             lines.append(
                 f"+{delta:6.2f} {t:<10} (score {o:.2f}->{n:.2f}; count {co}->{cn})"
             )
         lines.append("")
-        falling_slice = falling[: self.top_n]
+        falling_slice = falling[: self.output_top_n]
         lines.append(f"Falling Types ({len(falling_slice)} Total)")
         for t, o, n, delta, co, cn in falling_slice:
             lines.append(
