@@ -1,11 +1,13 @@
 from __future__ import annotations
 import argparse
+from datetime import datetime, UTC
 from pathlib import Path
 from .loader import RankingsLoader
 from .processors import (
     MoveSetChangesProcessor,
     TypeTrendsProcessor,
     WinnersLosersProcessor,
+    RankShiftProcessor,
 )
 
 LEAGUE_ALIASES = {
@@ -50,13 +52,14 @@ def parse_args():
     )
     p.add_argument(
         "--processor",
-        choices=["winners", "movesets", "types"],
+        choices=["winners", "movesets", "types", "ranks"],
         default="winners",
         help=(
             "Select analysis: "
-            "winners (per-Pokémon score deltas), "
+            "winners (score deltas), "
             "movesets (move set changes among top N by new score), "
-            "types (aggregate rising/falling types)."
+            "types (aggregate rising/falling types), "
+            "ranks (rank position shifts)."
         ),
     )
     return p.parse_args()
@@ -94,8 +97,21 @@ def main():
             min_abs_delta=args.min_delta,
             analyze_top_n=args.analyze_top_n,
         )
+    elif args.processor == "ranks":
+        processor = RankShiftProcessor(
+            analyze_top_n=args.analyze_top_n,
+            output_top_n=args.output_top_n,
+            min_rank_delta=int(args.min_delta) if args.min_delta else 1,
+        )
     report = processor.process(old_ds, new_ds)
-    print(report)
+    # Write to output directory
+    out_dir = Path("output")
+    out_dir.mkdir(parents=True, exist_ok=True)
+    timestamp = datetime.now(UTC).strftime("%Y%m%d-%H%M%S")
+    filename = f"{league}_{args.processor}_{timestamp}.txt"
+    out_path = out_dir / filename
+    out_path.write_text(report, encoding="utf-8")
+    print(f"[written] {out_path}")
 
 
 if __name__ == "__main__":

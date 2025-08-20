@@ -1,0 +1,55 @@
+League: great
+Move Set Changes Among Top 100 (by new score)
+ 1. Corviknight (score 91.6 -> 96.0)
+    Charged: -Iron Head/Sky Attack +Air Cutter/Payback
+ 2. Carbink (score 90.7 -> 94.9)
+    Charged: -Power Gem +Rock Slide
+ 3. Empoleon (Shadow) (score 79.4 -> 94.3)
+    Fast: Metal Claw -> Metal Sound
+ 4. Empoleon (score 79.3 -> 93.3)
+    Fast: Metal Claw -> Metal Sound
+ 5. Steelix (score 91.6 -> 92.8)
+    Fast: Thunder Fang -> Dragon Tail | Charged: -Psychic Fangs +Earthquake
+ 6. Guzzlord (score 86.4 -> 91.7)
+    Charged: -Sludge Bomb +Dragon Claw
+ 7. Steelix (Shadow) (score 89.9 -> 90.9)
+    Fast: Thunder Fang -> Dragon Tail | Charged: -Psychic Fangs +Earthquake
+ 8. Kommo-o (score 83.5 -> 90.3)
+    Charged: -Dragon Claw +Upper Hand
+ 9. Turtonator (score 79.3 -> 89.7)
+    Charged: -Dragon Pulse/Overheat +Brutal Swing/Dragon Claw
+10. Gastrodon (score 91.5 -> 89.1)
+    Charged: -Earth Power +Water Pulse
+11. Murkrow (Shadow) (score 61.2 -> 88.6)
+    Fast: Feint Attack -> Peck
+12. Runerigus (score 89.2 -> 88.3)
+    Charged: -Shadow Ball +Brutal Swing
+13. Machamp (Shadow) (score 87.1 -> 87.7)
+    Charged: -Stone Edge +Rock Slide
+14. Dodrio (score 58.7 -> 87.6)
+    Fast: Steel Wing -> Peck
+15. Gligar (Shadow) (score 92.2 -> 87.3)
+    Charged: -Aerial Ace +Night Slash
+16. Annihilape (score 87.1 -> 87.1)
+    Charged: -Close Combat +Ice Punch
+17. Dragonite (Shadow) (score 84.0 -> 87.1)
+    Charged: -Dragon Claw +Thunder Punch
+18. Hakamo-o (score 85.9 -> 87.1)
+    Charged: -Brick Break +Rock Tomb
+19. Kingdra (score 70.1 -> 87.1)
+    Charged: -Octazooka +Swift
+20. Metang (score 88.5 -> 87.0)
+    Charged: -Return +Gyro Ball
+21. Altaria (score 81.1 -> 86.8)
+    Charged: -Moonblast +Flamethrower
+22. Dragonair (score 83.8 -> 86.5)
+    Charged: -Wrap +Dragon Pulse
+23. Crustle (score 81.8 -> 86.2)
+    Charged: -Rock Slide +Rock Wrecker
+24. Kingdra (Shadow) (score 69.6 -> 86.2)
+    Charged: -Octazooka +Swift
+25. Fearow (score 59.9 -> 85.9)
+    Fast: Steel Wing -> Peck | Charged: -Fly +Drill Peck
+(Truncated to 25 changes out of 29)
+
+Total with move changes: 29

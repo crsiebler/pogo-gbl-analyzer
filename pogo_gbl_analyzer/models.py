@@ -5,10 +5,14 @@ from typing import Dict, Optional
 
 @dataclass(frozen=True)
 class RankingRecord:
-    """Represents a single Pokémon ranking row."""
+    """Represents a single Pokémon ranking row.
+
+    rank: 1-based position derived from CSV order (lower is better). Not persisted in raw.
+    """
 
     pokemon: str
     score: float
+    rank: int
     raw: Dict[str, str]
 
     @property

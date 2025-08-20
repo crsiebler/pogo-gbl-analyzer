@@ -24,6 +24,11 @@ class RankingsLoader:
                 except ValueError:
                     continue
                 pokemon = row["Pokemon"].strip()
-                rec = RankingRecord(pokemon=pokemon, score=score, raw=row)
+                rec = RankingRecord(
+                    pokemon=pokemon,
+                    score=score,
+                    rank=len(records) + 1,  # 1-based order as encountered
+                    raw=row,
+                )
                 records[rec.name_key] = rec
         return RankingDataset(league=league, records=records)
