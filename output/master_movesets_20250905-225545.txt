@@ -1,0 +1,55 @@
+League: master
+Move Set Changes Among Top 100 (by new score)
+ 1. Kyurem (White) (score 87.8 -> 93.4)
+    Fast: Ice Fang -> Dragon Breath
+ 2. Zekrom (score 85.0 -> 93.1)
+    Charged: -Crunch/Wild Charge +Fusion Bolt/Outrage
+ 3. Reshiram (score 82.7 -> 92.2)
+    Fast: Fire Fang -> Dragon Breath
+ 4. Latios (Shadow) (score 78.4 -> 88.7)
+    Charged: -Dragon Claw +Aura Sphere
+ 5. Groudon (score 87.2 -> 87.4)
+    Fast: Mud Shot -> Dragon Tail
+ 6. Kyurem (Black) (score 90.7 -> 87.1)
+    Fast: Shadow Claw -> Dragon Tail
+ 7. Latios (score 76.3 -> 86.1)
+    Charged: -Dragon Claw +Aura Sphere
+ 8. Togekiss (score 72.3 -> 85.8)
+    Fast: Charm -> Peck | Charged: -Psyshock +Dazzling Gleam
+ 9. Latias (Shadow) (score 60.1 -> 85.4)
+    Charged: -Outrage +Aura Sphere
+10. Meloetta (Aria) (score 86.6 -> 85.0)
+    Fast: Quick Attack -> Confusion
+11. Jirachi (score 75.9 -> 84.3)
+    Charged: -Dazzling Gleam +Aura Sphere
+12. Dragonite (Shadow) (score 84.7 -> 84.2)
+    Charged: -Dragon Claw +Thunder Punch
+13. Groudon (Shadow) (score 85.2 -> 83.0)
+    Fast: Mud Shot -> Dragon Tail
+14. Annihilape (Shadow) (score 87.2 -> 82.9)
+    Charged: -Close Combat +Ice Punch
+15. Latias (score 64.3 -> 82.1)
+    Charged: -Outrage +Aura Sphere
+16. Annihilape (score 86.5 -> 81.3)
+    Charged: -Close Combat +Ice Punch
+17. Rhyperior (score 85.3 -> 81.0)
+    Charged: -Breaking Swipe +Superpower
+18. Primarina (score 74.5 -> 80.9)
+    Fast: Waterfall -> Charm
+19. Rhyperior (Shadow) (score 86.6 -> 80.8)
+    Charged: -Breaking Swipe +Superpower
+20. Raikou (Shadow) (score 75.3 -> 80.5)
+    Charged: -Shadow Ball +Aura Sphere
+21. Salamence (Shadow) (score 71.4 -> 80.5)
+    Charged: -Outrage +Brutal Swing
+22. Dragonite (score 84.2 -> 80.1)
+    Charged: -Dragon Claw +Thunder Punch
+23. Raikou (score 72.4 -> 79.8)
+    Charged: -Shadow Ball +Aura Sphere
+24. Giratina (Altered) (Shadow) (score 84.4 -> 78.2)
+    Fast: Shadow Claw -> Dragon Breath | Charged: -Shadow Sneak +Ancient Power
+25. Baxcalibur (score 71.5 -> 77.9)
+    Fast: Ice Fang -> Dragon Breath
+(Truncated to 25 changes out of 33)
+
+Total with move changes: 33
