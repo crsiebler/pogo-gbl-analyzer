@@ -1,0 +1,55 @@
+League: ultra
+Move Set Changes Among Top 100 (by new score)
+ 1. Corviknight (score 95.3 -> 97.7)
+    Charged: -Iron Head/Sky Attack +Air Cutter/Payback
+ 2. Regidrago (score 92.2 -> 94.2)
+    Charged: -Breaking Swipe +Hyper Beam
+ 3. Empoleon (Shadow) (score 81.1 -> 93.7)
+    Fast: Metal Claw -> Metal Sound
+ 4. Togekiss (score 76.0 -> 93.6)
+    Fast: Charm -> Peck | Charged: -Psyshock +Dazzling Gleam
+ 5. Forretress (score 94.7 -> 92.9)
+    Fast: Bug Bite -> Volt Switch
+ 6. Cresselia (score 88.4 -> 92.6)
+    Fast: Psycho Cut -> Confusion
+ 7. Empoleon (score 79.7 -> 91.9)
+    Fast: Metal Claw -> Metal Sound
+ 8. Crustle (score 81.6 -> 91.7)
+    Charged: -Rock Slide +Rock Wrecker
+ 9. Kingdra (Shadow) (score 71.6 -> 91.5)
+    Charged: -Octazooka +Swift
+10. Kommo-o (score 85.6 -> 91.3)
+    Charged: -Close Combat +Upper Hand
+11. Jirachi (score 79.7 -> 91.2)
+    Charged: -Dazzling Gleam +Aura Sphere
+12. Giratina (Altered) (score 92.0 -> 91.1)
+    Fast: Shadow Claw -> Dragon Breath | Charged: -Shadow Sneak +Ancient Power
+13. Raikou (Shadow) (score 84.7 -> 91.0)
+    Charged: -Shadow Ball +Aura Sphere
+14. Crustle (Shadow) (score 81.2 -> 90.7)
+    Charged: -Rock Slide +Rock Wrecker
+15. Kingdra (score 76.5 -> 90.5)
+    Charged: -Octazooka +Swift
+16. Latias (score 66.6 -> 89.6)
+    Charged: -Thunder +Aura Sphere
+17. Nidoqueen (score 85.8 -> 89.4)
+    Fast: Poison Sting -> Mud Slap | Charged: -Earth Power +Stone Edge
+18. Dodrio (score 62.1 -> 89.1)
+    Fast: Steel Wing -> Peck
+19. Latias (Shadow) (score 63.7 -> 89.0)
+    Charged: -Thunder +Aura Sphere
+20. Cresselia (Shadow) (score 85.3 -> 88.8)
+    Fast: Psycho Cut -> Confusion
+21. Forretress (Shadow) (score 91.6 -> 88.7)
+    Fast: Bug Bite -> Volt Switch
+22. Blastoise (score 89.4 -> 88.6)
+    Charged: -Ice Beam +Skull Bash
+23. Dragalge (score 89.9 -> 88.6)
+    Fast: Acid -> Dragon Tail
+24. Annihilape (Shadow) (score 87.5 -> 88.5)
+    Charged: -Close Combat +Ice Punch
+25. Giratina (Altered) (Shadow) (score 90.6 -> 88.5)
+    Fast: Shadow Claw -> Dragon Breath | Charged: -Shadow Sneak +Ancient Power
+(Truncated to 25 changes out of 36)
+
+Total with move changes: 36

@@ -1,0 +1,55 @@
+League: great
+Move Set Changes Among Top 100 (by new score)
+ 1. Corviknight (score 91.6 -> 94.5)
+    Charged: -Iron Head/Sky Attack +Air Cutter/Payback
+ 2. Carbink (score 90.7 -> 93.6)
+    Charged: -Power Gem +Rock Slide
+ 3. Empoleon (Shadow) (score 79.4 -> 92.6)
+    Fast: Metal Claw -> Metal Sound
+ 4. Empoleon (score 79.3 -> 92.1)
+    Fast: Metal Claw -> Metal Sound
+ 5. Togekiss (score 76.2 -> 90.7)
+    Fast: Charm -> Peck | Charged: -Psyshock +Dazzling Gleam
+ 6. Gastrodon (score 91.5 -> 88.9)
+    Charged: -Earth Power +Water Pulse
+ 7. Runerigus (score 89.2 -> 88.6)
+    Charged: -Shadow Ball +Brutal Swing
+ 8. Regidrago (score 87.8 -> 88.1)
+    Charged: -Breaking Swipe +Hyper Beam
+ 9. Dragonite (Shadow) (score 84.0 -> 87.8)
+    Charged: -Dragon Claw +Thunder Punch
+10. Guzzlord (score 86.4 -> 87.8)
+    Charged: -Sludge Bomb +Dragon Claw
+11. Steelix (Shadow) (score 89.9 -> 87.8)
+    Charged: -Breaking Swipe +Crunch
+12. Steelix (score 91.6 -> 87.7)
+    Charged: -Breaking Swipe +Crunch
+13. Machamp (Shadow) (score 87.1 -> 87.6)
+    Charged: -Stone Edge +Rock Slide
+14. Annihilape (score 87.1 -> 87.4)
+    Charged: -Close Combat +Ice Punch
+15. Kommo-o (score 83.5 -> 87.3)
+    Charged: -Dragon Claw +Upper Hand
+16. Kingdra (score 70.1 -> 87.2)
+    Charged: -Octazooka +Swift
+17. Metang (score 88.5 -> 87.2)
+    Charged: -Return +Gyro Ball
+18. Gligar (Shadow) (score 92.2 -> 87.1)
+    Charged: -Aerial Ace +Night Slash
+19. Murkrow (Shadow) (score 61.2 -> 87.1)
+    Fast: Feint Attack -> Peck
+20. Dragonair (score 83.8 -> 86.7)
+    Charged: -Wrap +Dragon Pulse
+21. Dodrio (score 58.7 -> 86.6)
+    Fast: Steel Wing -> Peck
+22. Raikou (score 78.3 -> 86.6)
+    Charged: -Shadow Ball +Aura Sphere
+23. Altaria (score 81.1 -> 86.5)
+    Charged: -Moonblast +Flamethrower
+24. Kingdra (Shadow) (score 69.6 -> 86.2)
+    Charged: -Octazooka +Swift
+25. Crustle (score 81.8 -> 85.7)
+    Charged: -Rock Slide +Rock Wrecker
+(Truncated to 25 changes out of 27)
+
+Total with move changes: 27
