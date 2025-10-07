@@ -1,0 +1,14 @@
+League: great
+Move Set Changes Among Top 100 (by new score)
+ 1. Clodsire (score 88.9 -> 90.8)
+    Charged: -Stone Edge +Sludge Bomb
+ 2. Florges (score 83.0 -> 89.7)
+    Charged: -Trailblaze +Chilling Water
+ 3. Guzzlord (score 87.8 -> 89.5)
+    Charged: -Dragon Claw +Sludge Bomb
+ 4. Togekiss (score 90.7 -> 88.1)
+    Charged: -Dazzling Gleam +Psyshock
+
+Total with move changes: 4
+
+New in top 100 (no previous move set to compare): Altaria (Shadow), Hydreigon (Shadow), Zweilous (Shadow)

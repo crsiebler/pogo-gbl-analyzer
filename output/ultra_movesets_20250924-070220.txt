@@ -1,0 +1,10 @@
+League: ultra
+Move Set Changes Among Top 100 (by new score)
+ 1. Togekiss (score 93.6 -> 93.7)
+    Charged: -Dazzling Gleam +Psyshock
+ 2. Florges (score 88.3 -> 91.6)
+    Charged: -Trailblaze +Chilling Water
+
+Total with move changes: 2
+
+New in top 100 (no previous move set to compare): Hydreigon (Shadow)
