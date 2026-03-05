@@ -1,0 +1,55 @@
+League: ultra
+Move Set Changes Among Top 100 (by new score)
+ 1. Corviknight (score 95.6 -> 95.6)
+    Charged: -Air Cutter +Air Cutter*
+ 2. Lapras (score 95.4 -> 95.4)
+    Charged: -Ice Beam +Ice Beam*
+ 3. Florges (score 94.5 -> 94.8)
+    Charged: -Chilling Water +Chilling Water*
+ 4. Lapras (Shadow) (score 94.9 -> 94.7)
+    Charged: -Ice Beam +Ice Beam*
+ 5. Empoleon (score 94.5 -> 94.4)
+    Charged: -Hydro Cannon +Hydro Cannon*
+ 6. Empoleon (Shadow) (score 94.4 -> 94.3)
+    Charged: -Hydro Cannon +Hydro Cannon*
+ 7. Feraligatr (Shadow) (score 94.3 -> 94.0)
+    Charged: -Hydro Cannon +Hydro Cannon*
+ 8. Regidrago (score 93.9 -> 93.8)
+    Fast: Dragon Breath -> Dragon Breath* | Charged: -Dragon Energy +Dragon Energy*
+ 9. Feraligatr (score 93.0 -> 93.3)
+    Charged: -Hydro Cannon +Hydro Cannon*
+10. Dondozo (score 89.9 -> 93.1)
+    Fast: Water Gun -> Waterfall
+11. Virizion (score 93.2 -> 92.8)
+    Charged: -Sacred Sword +Sacred Sword*
+12. Togekiss (score 93.1 -> 92.7)
+    Charged: -Aura Sphere +Aura Sphere*
+13. Lickilicky (score 93.0 -> 92.6)
+    Charged: -Body Slam +Body Slam*
+14. Annihilape (Shadow) (score 89.3 -> 92.0)
+    Fast: Counter -> Low Kick | Charged: -Ice Punch/Rage Fist +Close Combat/Rage Fist*
+15. Ninetales (Alolan) (score 89.6 -> 91.6)
+    Charged: -Dazzling Gleam +Chilling Water*
+16. Ninetales (Alolan) (Shadow) (score 90.4 -> 91.4)
+    Charged: -Dazzling Gleam +Chilling Water*
+17. Walrein (score 92.8 -> 91.4)
+    Fast: Powder Snow -> Powder Snow* | Charged: -Icicle Spear +Icicle Spear*
+18. Forretress (score 93.4 -> 91.3)
+    Fast: Volt Switch -> Bug Bite | Charged: -Earthquake +Sand Tomb
+19. Walrein (Shadow) (score 92.5 -> 91.1)
+    Fast: Powder Snow -> Powder Snow* | Charged: -Icicle Spear +Icicle Spear*
+20. Blastoise (score 91.6 -> 91.0)
+    Charged: -Hydro Cannon +Hydro Cannon*
+21. Cresselia (score 91.0 -> 90.8)
+    Fast: Confusion -> Psycho Cut | Charged: -Grass Knot +Grass Knot*
+22. Toucannon (Shadow) (score 91.9 -> 90.7)
+    Charged: -Beak Blast +Beak Blast*
+23. Forretress (Shadow) (score 89.5 -> 90.6)
+    Fast: Volt Switch -> Bug Bite | Charged: -Earthquake +Sand Tomb
+24. Annihilape (score 88.2 -> 90.5)
+    Fast: Counter -> Low Kick | Charged: -Ice Punch/Rage Fist +Close Combat/Rage Fist*
+25. Samurott (score 90.7 -> 90.5)
+    Charged: -Hydro Cannon +Hydro Cannon*
+(Truncated to 25 changes out of 44)
+
+Total with move changes: 44

@@ -1,8 +1,0 @@
-League: master
-Move Set Changes Among Top 100 (by new score)
- 1. Florges (score 82.8 -> 91.1)
-    Charged: -Trailblaze +Chilling Water
-
-Total with move changes: 1
-
-New in top 100 (no previous move set to compare): Hydreigon (Shadow)

@@ -1,0 +1,55 @@
+League: great
+Move Set Changes Among Top 100 (by new score)
+ 1. Empoleon (score 90.4 -> 92.3)
+    Charged: -Hydro Cannon +Hydro Cannon*
+ 2. Corviknight (score 91.6 -> 91.7)
+    Charged: -Air Cutter +Air Cutter*
+ 3. Empoleon (Shadow) (score 90.0 -> 91.7)
+    Charged: -Hydro Cannon +Hydro Cannon*
+ 4. Lickilicky (score 90.7 -> 91.2)
+    Charged: -Body Slam +Body Slam*
+ 5. Feraligatr (score 88.4 -> 91.1)
+    Charged: -Hydro Cannon +Hydro Cannon*
+ 6. Florges (score 86.9 -> 90.8)
+    Charged: -Chilling Water/Trailblaze +Chilling Water*/Disarming Voice
+ 7. Togekiss (score 87.6 -> 90.7)
+    Charged: -Aura Sphere +Aura Sphere*
+ 8. Lapras (score 90.3 -> 90.6)
+    Charged: -Ice Beam +Ice Beam*
+ 9. Talonflame (score 88.3 -> 90.6)
+    Fast: Incinerate -> Incinerate*
+10. Annihilape (score 89.6 -> 90.5)
+    Fast: Counter -> Low Kick | Charged: -Ice Punch/Rage Fist +Close Combat/Rage Fist*
+11. Blastoise (score 89.6 -> 90.0)
+    Charged: -Hydro Cannon +Hydro Cannon*
+12. Lapras (Shadow) (score 89.6 -> 89.9)
+    Charged: -Ice Beam +Ice Beam*
+13. Politoed (Shadow) (score 80.2 -> 89.8)
+    Charged: -Earthquake +Ice Beam*
+14. Talonflame (Shadow) (score 87.6 -> 89.8)
+    Fast: Incinerate -> Incinerate*
+15. Quagsire (Shadow) (score 87.6 -> 89.7)
+    Charged: -Aqua Tail +Aqua Tail*
+16. Charjabug (score 89.3 -> 89.6)
+    Fast: Volt Switch -> Volt Switch*
+17. Ninetales (score 88.6 -> 89.6)
+    Fast: Ember -> Ember*
+18. Ninetales (Alolan) (score 88.2 -> 89.6)
+    Charged: -Dazzling Gleam +Chilling Water*
+19. Quagsire (score 86.7 -> 89.6)
+    Charged: -Aqua Tail +Aqua Tail*
+20. Shelgon (score 82.1 -> 89.5)
+    Charged: -Crunch/Dragon Pulse +Flamethrower/Twister
+21. Dondozo (score 79.3 -> 89.3)
+    Fast: Water Gun -> Waterfall | Charged: -Liquidation +Outrage
+22. Ninetales (Alolan) (Shadow) (score 88.3 -> 89.3)
+    Charged: -Dazzling Gleam +Chilling Water*
+23. Feraligatr (Shadow) (score 88.5 -> 89.2)
+    Charged: -Hydro Cannon +Hydro Cannon*
+24. Seaking (score 87.7 -> 89.1)
+    Charged: -Drill Run/Icy Wind +Drill Run*/Icy Wind*
+25. Swampert (score 84.2 -> 89.1)
+    Charged: -Hydro Cannon/Sludge +Earthquake/Hydro Cannon*
+(Truncated to 25 changes out of 37)
+
+Total with move changes: 37

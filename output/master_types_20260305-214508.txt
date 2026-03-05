@@ -1,0 +1,23 @@
+League: master
+Type Trends (aggregate score deltas) (top 100)
+
+Rising Types (10 Total)
++108.60 water      (score 1150.80->1259.40; count 14->15)
++ 83.90 ghost      (score 829.70->913.60; count 10->11)
++ 80.00 flying     (score 1247.30->1327.30; count 15->16)
++ 76.10 fire       (score 653.70->729.80; count 8->9)
++ 12.90 fighting   (score 969.10->982.00; count 12->12)
++ 10.70 dragon     (score 2556.90->2567.60; count 30->30)
++  9.80 psychic    (score 1643.80->1653.60; count 19->19)
++  0.40 electric   (score 409.80->410.20; count 5->5)
++  0.30 fairy      (score 915.60->915.90; count 11->11)
++  0.10 grass      (score 154.40->154.50; count 2->2)
+
+Falling Types (7 Total)
+-145.00 ground     (score 1037.90->892.90; count 13->11)
+ -74.10 normal     (score 161.80->87.70; count 2->1)
+ -74.00 ice        (score 574.10->500.10; count 7->6)
+  -9.10 steel      (score 1545.30->1536.20; count 18->18)
+  -7.20 rock       (score 401.20->394.00; count 5->5)
+  -3.80 dark       (score 498.40->494.60; count 6->6)
+  -0.80 bug        (score 228.10->227.30; count 3->3)
