@@ -1,0 +1,57 @@
+League: master
+Move Set Changes Among Top 100 (by new score)
+ 1. Zacian (Crowned Sword) (score 99.2 -> 99.1)
+    Charged: -Behemoth Blade +Behemoth Blade<sup>†</sup>
+ 2. Palkia (Origin) (score 98.9 -> 98.8)
+    Charged: -Spacial Rend +Spacial Rend<sup>†</sup>
+ 3. Metagross (score 98.2 -> 96.6)
+    Fast: Shadow Claw -> Shadow Claw* | Charged: -Meteor Mash +Meteor Mash*
+ 4. Xerneas (score 96.7 -> 95.3)
+    Fast: Geomancy -> Geomancy*
+ 5. Zamazenta (Crowned Shield) (score 95.5 -> 94.8)
+    Charged: -Behemoth Bash +Behemoth Bash<sup>†</sup>
+ 6. Kyurem (White) (score 94.8 -> 94.7)
+    Charged: -Ice Burn +Ice Burn<sup>†</sup>
+ 7. Dialga (Origin) (score 94.4 -> 94.5)
+    Charged: -Roar of Time +Roar of Time<sup>†</sup>
+ 8. Reshiram (score 94.2 -> 94.1)
+    Charged: -Fusion Flare +Fusion Flare*
+ 9. Kyurem (Black) (score 92.7 -> 92.9)
+    Charged: -Freeze Shock +Freeze Shock<sup>†</sup>
+10. Zekrom (score 93.2 -> 92.6)
+    Charged: -Fusion Bolt +Fusion Bolt*
+11. Marshadow (score 80.6 -> 92.0)
+    Fast: Sucker Punch -> Shadow Claw
+12. Kyogre (score 87.3 -> 91.8)
+    Charged: -Origin Pulse +Origin Pulse*
+13. Lugia (score 90.9 -> 90.6)
+    Charged: -Aeroblast +Aeroblast*
+14. Eternatus (score 90.4 -> 90.4)
+    Charged: -Dynamax Cannon +Dynamax Cannon*
+15. Lugia (Shadow) (score 89.9 -> 89.9)
+    Charged: -Aeroblast +Aeroblast*
+16. Metagross (Shadow) (score 91.3 -> 89.8)
+    Fast: Shadow Claw -> Shadow Claw* | Charged: -Meteor Mash +Meteor Mash*
+17. Yveltal (score 89.8 -> 88.7)
+    Charged: -Oblivion Wing +Oblivion Wing*
+18. Ho-Oh (score 88.7 -> 88.6)
+    Charged: -Sacred Fire +Sacred Fire*
+19. Groudon (score 88.5 -> 87.9)
+    Charged: -Fire Punch/Precipice Blades +Fire Punch*/Precipice Blades*
+20. Garchomp (score 80.2 -> 87.7)
+    Charged: -Breaking Swipe/Earth Power +Earth Power*/Twister
+21. Garchomp (Shadow) (score 81.1 -> 87.2)
+    Charged: -Breaking Swipe/Earth Power +Earth Power*/Twister
+22. Latios (Shadow) (score 87.1 -> 86.9)
+    Charged: -Luster Purge +Luster Purge*
+23. Kyogre (Shadow) (score 74.1 -> 86.6)
+    Charged: -Surf +Origin Pulse*
+24. Latios (score 86.0 -> 86.6)
+    Charged: -Luster Purge +Luster Purge*
+25. Florges (score 86.7 -> 86.3)
+    Charged: -Chilling Water +Chilling Water*
+(Truncated to 25 changes out of 61)
+
+Total with move changes: 61
+
+New in top 100 (no previous move set to compare): Enamorus (Therian)

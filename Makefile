@@ -13,11 +13,20 @@ MODULE ?= $(PKG).main
 DATA_DIR = data
 
 # Tunable args (override on command line)
-OUTPUT_TOP_N ?= 25          # maps to --output-top-n
-MIN_DELTA ?= 0.1            # maps to --min-delta (used by winners & types)
-PROCESSOR ?= all            # winners | movesets | types | ranks | all
-LEAGUE ?= all               # optional single league override (great|ultra|master|all)
-ANALYZE_TOP_N ?= 100        # --analyze-top-n (applies to: winners NEW subset, movesets NEW subset, types BOTH snapshots)
+# maps to --output-top-n
+OUTPUT_TOP_N ?= 25
+# maps to --min-delta (used by winners & types)
+MIN_DELTA ?= 0.1
+# winners | movesets | types | ranks | all
+PROCESSOR ?= all
+# optional single league override (great|ultra|master|all)
+LEAGUE ?= all
+# --analyze-top-n (applies to: winners NEW subset, movesets NEW subset, types BOTH snapshots)
+ANALYZE_TOP_N ?= 100
+
+# Normalize to avoid whitespace-related condition mismatches.
+PROCESSOR := $(strip $(PROCESSOR))
+LEAGUE := $(strip $(LEAGUE))
 
 # Build analyze flag (movesets will fallback internally to 50 if unset)
 ifdef ANALYZE_TOP_N
