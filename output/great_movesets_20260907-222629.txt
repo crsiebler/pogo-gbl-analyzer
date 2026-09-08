@@ -1,0 +1,42 @@
+League: great
+Move Set Changes Among OLD or NEW Top 100 by CSV rank (union: 117; ordered by new rank)
+ 1. Quagsire (Shadow) (score 91.8 -> 91.3)
+    Charged: -Mud Bomb +Stone Edge
+ 2. Corviknight (score 90.7 -> 91.2)
+    Charged: -Payback +Iron Head*
+ 3. Quagsire (score 91.7 -> 91.1)
+    Charged: -Mud Bomb +Stone Edge
+ 4. Corviknight (Shadow) (score 90.2 -> 90.7)
+    Charged: -Payback +Iron Head*
+ 5. Vigoroth (score 78.6 -> 90.3)
+    Fast: Counter -> Scratch | Charged: -Rock Slide +Bulldoze
+ 6. Annihilape (Shadow) (score 84.9 -> 90.2)
+    Fast: Counter -> Low Kick
+ 7. Mandibuzz (score 89.2 -> 89.8)
+    Charged: -Foul Play +Dark Pulse
+ 8. Umbreon (score 90.2 -> 89.8)
+    Charged: -Foul Play +Dark Pulse
+ 9. Snorlax (score 81.2 -> 89.5)
+    Fast: Lick -> Psywave
+10. Vigoroth (Shadow) (score 77.0 -> 89.4)
+    Fast: Counter -> Scratch | Charged: -Rock Slide +Brick Break
+11. Blastoise (score 89.3 -> 89.2)
+    Fast: Rollout -> Bite
+12. Snorlax (Shadow) (score 81.4 -> 89.1)
+    Fast: Lick -> Psywave
+13. Cradily (score 85.9 -> 88.7)
+    Fast: Bullet Seed -> Acid
+14. Doublade (score 87.5 -> 88.6)
+    Charged: -Gyro Ball +Iron Head
+15. Rillaboom (score 66.0 -> 88.5)
+    Fast: Razor Leaf -> Scratch
+16. Dunsparce (score 88.1 -> 87.2)
+    Fast: Rollout -> Bite
+17. Muk (Alolan) (score 76.5 -> 86.8)
+    Charged: -Acid Spray/Dark Pulse +Brutal Swing/Ice Punch
+18. Oinkologne (Female) (score 89.9 -> 86.1)
+    Fast: Mud Slap* -> Take Down
+19. Greedent (score 89.7 -> 83.1)
+    Fast: Mud Shot -> Bite
+
+Total with move changes: 19

@@ -1,13 +1,16 @@
 from __future__ import annotations
+
 import argparse
-from datetime import datetime, UTC
+from datetime import UTC, datetime
 from pathlib import Path
+
 from .loader import RankingsLoader
 from .processors import (
+    BaseRankingProcessor,
     MoveSetChangesProcessor,
+    RankShiftProcessor,
     TypeTrendsProcessor,
     WinnersLosersProcessor,
-    RankShiftProcessor,
 )
 
 LEAGUE_ALIASES = {
@@ -36,19 +39,28 @@ def parse_args():
         "--analyze-top-n",
         type=int,
         default=None,
-        help="Limit analysis to top N of NEW snapshot (winners/movesets). If omitted, use all.",
+        help=(
+            "Scope by original CSV rank <= N: winners/ranks use NEW for gains "
+            "and OLD for losses; movesets uses the OLD/NEW union; types scopes "
+            "each snapshot independently. Includes movements within top N, with "
+            "no score floor. Omitted: unrestricted except movesets defaults to 50."
+        ),
     )
     p.add_argument(
         "--output-top-n",
         type=int,
         default=25,
-        help="How many rows to display (winners list, losers list, rising/falling types, or move changes).",
+        help="Rows per list after scope filtering and sorting (winners/losers, climbers/droppers, rising/falling types, or move changes).",
     )
     p.add_argument(
         "--min-delta",
         type=float,
         default=0.1,
-        help="Minimum absolute score delta to include (winners/types). Default 0.1.",
+        help=(
+            "Minimum absolute score delta (winners/types). Default 0.1. "
+            "For ranks, nonzero values are converted to integer positions; "
+            "use 1 explicitly for a one-position threshold."
+        ),
     )
     p.add_argument(
         "--processor",
@@ -57,7 +69,7 @@ def parse_args():
         help=(
             "Select analysis: "
             "winners (score deltas), "
-            "movesets (move set changes among top N by new score), "
+            "movesets (move changes in OLD/NEW top N union by CSV rank), "
             "types (aggregate rising/falling types), "
             "ranks (rank position shifts)."
         ),
@@ -80,6 +92,7 @@ def main():
     old_ds = loader.load_csv(args.old, league)
     new_ds = loader.load_csv(args.new, league)
 
+    processor: BaseRankingProcessor
     if args.processor == "winners":
         processor = WinnersLosersProcessor(
             analyze_top_n=args.analyze_top_n,

@@ -1,0 +1,63 @@
+{
+  "project": "pogo-gbl-analyzer",
+  "branchName": "ralph/rank-based-analysis-scope",
+  "description": "Use original CSV ranks for directional, union, and independent snapshot analysis scopes.",
+  "userStories": [
+    {
+      "id": "US-001",
+      "title": "Scope ranks and winners by direction",
+      "description": "As an analyst, I want gains scoped by new rank and losses by old rank so relevant movements remain eligible.",
+      "acceptanceCriteria": [
+        "Use original RankingRecord.rank <= N: new for climbers and score winners, old for droppers and score losers.",
+        "Include within-top-N movements, filter before sorting and output truncation, skip missing counterparts, and leave omitted scope unrestricted without a score floor.",
+        "Tests pass",
+        "Typecheck passes"
+      ],
+      "priority": 1,
+      "passes": true,
+      "notes": "Completed and independently reviewed. Initial directional regressions failed before implementation. Final verification: 14 unittest tests pass, including Melmetal 79->7 and score/rank direction divergence; configured mypy passes on 11 source files; Ruff lint and formatting pass. Reviewed processor and Makefile diffs; no actionable logic defects found. Existing unrelated work preserved."
+    },
+    {
+      "id": "US-002",
+      "title": "Compare movesets across the rank-scope union",
+      "description": "As an analyst, I want move changes for either snapshot top N so former top entries remain visible.",
+      "acceptanceCriteria": [
+        "Union old and new records with original rank <= N; compare each matching entry once in new-rank order.",
+        "Handle missing counterparts safely, ignore charged ordering, truncate after comparison, and preserve CLI fallback 50.",
+        "Tests pass",
+        "Typecheck passes"
+      ],
+      "priority": 2,
+      "passes": true,
+      "notes": "Completed and independently reviewed. Union, rank ordering, truncation, and CLI fallback regressions failed before implementation and now pass; charged-order and missing-counterpart cases covered. Final configured mypy, Ruff lint/format, and all 14 unittest tests pass. No actionable logic defects found."
+    },
+    {
+      "id": "US-003",
+      "title": "Scope type totals independently by rank",
+      "description": "As an analyst, I want each season independently scoped by CSV rank so type totals reflect its own top N.",
+      "acceptanceCriteria": [
+        "Scope each snapshot by original rank <= N, including entries without counterparts in their own totals.",
+        "Credit full scores to each distinct dual type, impose no score floor, and preserve unrestricted omitted scope.",
+        "Tests pass",
+        "Typecheck passes"
+      ],
+      "priority": 3,
+      "passes": true,
+      "notes": "Completed and independently reviewed. Independent totals and truncation regressions failed before implementation and now pass; distinct dual types, absent counterparts, unrestricted defaults, and scores below 80 covered. Final configured mypy, Ruff lint/format, and all 14 unittest tests pass. No actionable logic defects found."
+    },
+    {
+      "id": "US-004",
+      "title": "Document semantics and generate all league reports",
+      "description": "As a user, I want accurate usage documentation and regenerated reports for all four processors in all three leagues.",
+      "acceptanceCriteria": [
+        "Update README, CLI help, docstrings, and Makefile comments only; preserve functional build settings.",
+        "Run unittest, CLI help, Make dry-run, and 12 explicit fail-fast processor/league generations using Python 3.11+; create only new timestamped reports.",
+        "Review scoped diff and report check limitations; never mark stories passed without required typecheck evidence.",
+        "Typecheck passes"
+      ],
+      "priority": 4,
+      "passes": true,
+      "notes": "Completed after US-001 through US-003. README, help, docstrings, and Makefile comments updated; diff review confirms functional Makefile settings unchanged. Independent review identified stale tooling documentation, now corrected to describe pyproject.toml. Final checks: 14 unittest tests, configured mypy on 11 source files, Ruff lint and formatting on 12 files, CLI help, Make dry-run, and git diff --check pass. Implementation generated 12 reports with separately checked exit 0 using Python 3.11, scope 100, output 25, min delta 0.1 (ranks 1). Great winners timestamp 20260907-222628; other reports 20260907-222629. Review confirmed all 12 reports exist and spot-checked Melmetal and old-top-N moveset entries. No commits or branch operations; branchName is metadata only."
+    }
+  ]
+}

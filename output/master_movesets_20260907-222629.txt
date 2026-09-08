@@ -1,0 +1,34 @@
+League: master
+Move Set Changes Among OLD or NEW Top 100 by CSV rank (union: 111; ordered by new rank)
+ 1. Zygarde (Complete Forme) (score 88.6 -> 94.4)
+    Charged: -Earthquake +Bulldoze
+ 2. Ursaluna (Shadow) (score 72.9 -> 93.9)
+    Fast: Tackle -> Scratch | Charged: -Swift +Ice Punch
+ 3. Lugia (score 91.0 -> 92.1)
+    Charged: -Fly +Earth Power
+ 4. Ursaluna (score 72.6 -> 91.9)
+    Fast: Tackle -> Scratch | Charged: -Swift +Ice Punch
+ 5. Lugia (Shadow) (score 90.2 -> 89.7)
+    Charged: -Fly +Earth Power
+ 6. Giratina (Altered) (Shadow) (score 80.1 -> 85.3)
+    Charged: -Ancient Power +Shadow Sneak
+ 7. Primarina (score 84.6 -> 84.3)
+    Charged: -Disarming Voice +Moonblast
+ 8. Rillaboom (score 55.6 -> 83.2)
+    Fast: Razor Leaf -> Scratch
+ 9. Giratina (Altered) (score 77.9 -> 82.2)
+    Charged: -Ancient Power +Shadow Sneak
+10. Darkrai (Shadow) (score 60.1 -> 80.5)
+    Fast: Snarl -> Sucker Punch | Charged: -Dark Pulse +Foul Play
+11. Sylveon (score 83.1 -> 79.8)
+    Charged: -Moonblast +Draining Kiss
+12. Kingambit (score 74.8 -> 79.6)
+    Fast: Metal Sound -> Low Kick
+13. Snorlax (Shadow) (score 68.0 -> 79.1)
+    Fast: Lick -> Psywave | Charged: -Superpower +Earthquake
+14. Snorlax (score 67.1 -> 78.5)
+    Fast: Lick -> Psywave | Charged: -Superpower +Earthquake
+15. Zeraora (score 74.5 -> 76.5)
+    Charged: -Wild Charge +Dynamic Punch
+
+Total with move changes: 15

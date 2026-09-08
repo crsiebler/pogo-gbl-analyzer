@@ -1,8 +1,9 @@
 from __future__ import annotations
+
 import csv
 from dataclasses import dataclass
 from pathlib import Path
-from typing import List, Dict, Optional, Protocol, Tuple
+from typing import Dict, List, Optional, Protocol, Tuple
 
 
 @dataclass(frozen=True)
@@ -80,12 +81,12 @@ class WinnersLosersProcessor:
             allowed = {r.name_key for r in old_sorted}
         min_meta_score = min((r.score for r in old_sorted), default=0.0)
 
-        deltas: List[Tuple[str, float, float, float]] = (
-            []
-        )  # within meta (or unrestricted)
-        emerging: List[Tuple[str, Optional[float], float, float]] = (
-            []
-        )  # outside old meta but now relevant
+        deltas: List[
+            Tuple[str, float, float, float]
+        ] = []  # within meta (or unrestricted)
+        emerging: List[
+            Tuple[str, Optional[float], float, float]
+        ] = []  # outside old meta but now relevant
 
         for name, new_rec in new.records.items():
             old_rec = old.get(name)

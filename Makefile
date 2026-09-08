@@ -3,8 +3,8 @@
 .DEFAULT_GOAL := all
 # Updated for unified CLI flags (analyze vs output) — deprecated vars like TOP, OLD_TOP_N, EMERGING removed.
 # Usage examples:
-#   make great                                # Winners/losers full dataset, default output size
-#   make ultra OUTPUT_TOP_N=40 MIN_DELTA=0.2   # Show 40 winners/losers, filter small deltas
+#   make great                                # All processors, rank scope 100, output 25
+#   make ultra PROCESSOR=winners OUTPUT_TOP_N=40 MIN_DELTA=0.2
 #   make master PROCESSOR=movesets ANALYZE_TOP_N=60 OUTPUT_TOP_N=30
 
 PYTHON ?= python3
@@ -15,13 +15,17 @@ DATA_DIR = data
 # Tunable args (override on command line)
 # maps to --output-top-n
 OUTPUT_TOP_N ?= 25
-# maps to --min-delta (used by winners & types)
+# maps to --min-delta (winners/types score delta; ranks converts to integer)
+# Use MIN_DELTA=1 explicitly for a one-position rank threshold.
 MIN_DELTA ?= 0.1
 # winners | movesets | types | ranks | all
 PROCESSOR ?= all
 # optional single league override (great|ultra|master|all)
 LEAGUE ?= all
-# --analyze-top-n (applies to: winners NEW subset, movesets NEW subset, types BOTH snapshots)
+# --analyze-top-n uses original CSV rank <= N, never a score floor:
+# winners/ranks: gains NEW, losses OLD (including movements within top N)
+# movesets: OLD/NEW union; types: each snapshot independently
+# Empty ANALYZE_TOP_N means unrestricted except movesets defaults to 50.
 ANALYZE_TOP_N ?= 100
 
 # Normalize to avoid whitespace-related condition mismatches.

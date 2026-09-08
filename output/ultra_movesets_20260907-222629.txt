@@ -1,0 +1,55 @@
+League: ultra
+Move Set Changes Among OLD or NEW Top 100 by CSV rank (union: 120; ordered by new rank)
+ 1. Corviknight (score 93.4 -> 94.0)
+    Charged: -Payback +Iron Head*
+ 2. Zygarde (Complete Forme) (score 91.7 -> 93.5)
+    Charged: -Earthquake +Bulldoze
+ 3. Snorlax (Shadow) (score 79.7 -> 93.4)
+    Fast: Lick -> Psywave
+ 4. Snorlax (score 81.4 -> 92.0)
+    Fast: Lick -> Psywave | Charged: -Superpower +Earthquake
+ 5. Rillaboom (score 64.8 -> 90.7)
+    Fast: Razor Leaf -> Scratch
+ 6. Blastoise (score 90.7 -> 90.5)
+    Fast: Rollout -> Bite
+ 7. Giratina (Altered) (score 90.4 -> 90.4)
+    Charged: -Dragon Claw/Shadow Sneak +Ancient Power/Shadow Force*
+ 8. Giratina (Altered) (Shadow) (score 89.7 -> 89.5)
+    Charged: -Dragon Claw +Ancient Power
+ 9. Clefable (score 89.1 -> 89.4)
+    Charged: -Moonblast +Draining Kiss
+10. Steelix (score 89.9 -> 89.2)
+    Charged: -Crunch +Earthquake
+11. Primarina (score 88.5 -> 89.1)
+    Charged: -Disarming Voice +Moonblast
+12. Miltank (score 87.2 -> 88.7)
+    Charged: -Thunderbolt +High Horsepower
+13. Muk (Alolan) (score 76.7 -> 88.7)
+    Charged: -Acid Spray/Dark Pulse +Brutal Swing/Ice Punch
+14. Talonflame (Shadow) (score 90.2 -> 88.6)
+    Charged: -Flame Charge +Brave Bird
+15. Bellibolt (score 90.1 -> 88.5)
+    Fast: Thunder Shock -> Sucker Punch
+16. Bombirdier (score 86.6 -> 88.3)
+    Charged: -Rock Tomb +Drill Run
+17. Piloswine (Shadow) (score 79.9 -> 88.1)
+    Charged: -Stone Edge +High Horsepower
+18. Annihilape (Shadow) (score 91.8 -> 88.0)
+    Fast: Counter -> Low Kick
+19. Cofagrigus (score 87.3 -> 88.0)
+    Charged: -Return<sup>†</sup> +Energy Ball
+20. Orthworm (score 88.8 -> 87.8)
+    Charged: -Earthquake +Iron Head
+21. Blastoise (Shadow) (score 88.2 -> 87.6)
+    Fast: Rollout -> Bite
+22. Deoxys (Defense) (score 78.2 -> 87.4)
+    Fast: Counter -> Low Kick
+23. Muk (Alolan) (Shadow) (score 76.4 -> 87.4)
+    Charged: -Acid Spray/Dark Pulse +Brutal Swing/Ice Punch
+24. Charizard (score 82.2 -> 87.3)
+    Fast: Ember* -> Dragon Breath*
+25. Piloswine (score 80.0 -> 87.2)
+    Charged: -Stone Edge +High Horsepower
+(Truncated to 25 changes out of 35)
+
+Total with move changes: 35

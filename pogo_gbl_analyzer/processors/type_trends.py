@@ -1,6 +1,8 @@
 from __future__ import annotations
-from typing import Dict, List, Tuple
+
 from collections import defaultdict
+from typing import Dict, List, Tuple
+
 from ..models import RankingDataset
 
 
@@ -14,6 +16,10 @@ class TypeTrendsProcessor:
 
     Ranks by absolute delta (positive = rising, negative = falling) and outputs
     the top N in each direction.
+
+    analyze_top_n scopes each snapshot independently by original CSV rank <= N.
+    None leaves both unrestricted. Each distinct type receives the full score,
+    including records without a counterpart; there is no minimum score floor.
     """
 
     TYPE1_FIELD = "Type 1"
@@ -24,7 +30,7 @@ class TypeTrendsProcessor:
         output_top_n: int = 10,
         min_abs_delta: float = 0.5,
         analyze_top_n: int | None = None,
-    ):
+    ) -> None:
         self.output_top_n = output_top_n
         self.min_abs_delta = min_abs_delta
         self.analyze_top_n = analyze_top_n
@@ -41,7 +47,7 @@ class TypeTrendsProcessor:
             score: float,
             scores: Dict[str, float],
             counts: Dict[str, int],
-        ):
+        ) -> None:
             t1 = rec_raw.get(self.TYPE1_FIELD, "").strip().lower()
             t2 = rec_raw.get(self.TYPE2_FIELD, "").strip().lower()
             seen: List[str] = []
@@ -53,20 +59,12 @@ class TypeTrendsProcessor:
                 scores[t] += score
                 counts[t] += 1
 
-        old_iter = old.records.values()
-        new_iter = new.records.values()
-        if self.analyze_top_n is not None:
-            old_iter = sorted(old_iter, key=lambda r: r.score, reverse=True)[
-                : self.analyze_top_n
-            ]
-            new_iter = sorted(new_iter, key=lambda r: r.score, reverse=True)[
-                : self.analyze_top_n
-            ]
-
-        for rec in old_iter:
-            add(rec.raw, rec.score, old_scores, old_counts)
-        for rec in new_iter:
-            add(rec.raw, rec.score, new_scores, new_counts)
+        for rec in old.records.values():
+            if self.analyze_top_n is None or rec.rank <= self.analyze_top_n:
+                add(rec.raw, rec.score, old_scores, old_counts)
+        for rec in new.records.values():
+            if self.analyze_top_n is None or rec.rank <= self.analyze_top_n:
+                add(rec.raw, rec.score, new_scores, new_counts)
 
         # Union of all types encountered.
         types = sorted(set(old_scores) | set(new_scores))
@@ -87,7 +85,9 @@ class TypeTrendsProcessor:
         falling.sort(key=lambda x: x[3])
 
         scope_suffix = (
-            f" (top {self.analyze_top_n})" if self.analyze_top_n is not None else ""
+            f" (each snapshot top {self.analyze_top_n} by CSV rank)"
+            if self.analyze_top_n is not None
+            else ""
         )
         lines: List[str] = [
             f"League: {new.league}",
