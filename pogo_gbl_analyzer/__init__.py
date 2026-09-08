@@ -1,7 +1,7 @@
 """Package exposing models, loader, and ranking processors."""
 
-from .models import RankingRecord, RankingDataset
 from .loader import RankingsLoader
+from .models import RankingDataset, RankingRecord
 from .processors import BaseRankingProcessor, WinnersLosersProcessor
 
 __all__ = [

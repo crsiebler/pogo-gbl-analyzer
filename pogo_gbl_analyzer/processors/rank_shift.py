@@ -1,6 +1,8 @@
 from __future__ import annotations
+
 from typing import List, Optional, Tuple
-from ..models import RankingDataset, RankingRecord
+
+from ..models import RankingDataset
 
 
 class RankShiftProcessor:
@@ -9,8 +11,9 @@ class RankShiftProcessor:
     Lower rank value means a better position (rank 1 is best). A *drop* means the
     rank number increased (e.g., 5 -> 18). A *climb* means the rank number decreased (e.g., 42 -> 17).
 
-    analyze_top_n: restrict LOSER consideration to Pokémon that were within the top N of the OLD snapshot
-                   (mirrors losers scoping in WinnersLosersProcessor so large falls are still eligible).
+    analyze_top_n: climbers require NEW rank <= N; droppers require OLD rank <= N.
+      Uses original CSV positions and includes movements within the top N.
+      None leaves both directions unrestricted.
     output_top_n: number of climbers and droppers to show.
     min_rank_delta: minimum absolute rank shift to include (default 1 = any change).
     """
@@ -26,20 +29,21 @@ class RankShiftProcessor:
         self.min_rank_delta = min_rank_delta
 
     def process(self, old: RankingDataset, new: RankingDataset) -> str:
-        # Build loser scope (candidates for tracking large drops) from OLD snapshot top N ranks.
-        sorted_old: List[RankingRecord] = sorted(
-            old.records.values(), key=lambda r: r.rank
-        )
+        # Use original rank values, even when the dataset has gaps or is reordered.
+        climber_scope_keys = {
+            key
+            for key, rec in new.records.items()
+            if self.analyze_top_n is None or rec.rank <= self.analyze_top_n
+        }
         loser_scope_keys = {
-            r.name_key
-            for r in (
-                sorted_old[: self.analyze_top_n] if self.analyze_top_n else sorted_old
-            )
+            key
+            for key, rec in old.records.items()
+            if self.analyze_top_n is None or rec.rank <= self.analyze_top_n
         }
 
-        shifts: List[Tuple[str, int, int, int]] = (
-            []
-        )  # key, old_rank, new_rank, delta (old - new)
+        shifts: List[
+            Tuple[str, int, int, int]
+        ] = []  # key, old_rank, new_rank, delta (old - new)
         for key, new_rec in new.records.items():
             old_rec = old.get(key)
             if not old_rec:
@@ -49,7 +53,7 @@ class RankShiftProcessor:
             if abs(delta_rank) >= self.min_rank_delta:
                 shifts.append((key, old_rec.rank, new_rec.rank, delta_rank))
 
-        climbers = [s for s in shifts if s[3] > 0]  # improved rank (lower number)
+        climbers = [s for s in shifts if s[3] > 0 and s[0] in climber_scope_keys]
         droppers = [s for s in shifts if s[3] < 0 and s[0] in loser_scope_keys]
         climbers.sort(key=lambda x: x[3], reverse=True)  # biggest improvement first
         droppers.sort(key=lambda x: x[3])  # most negative (largest fall) first
@@ -67,9 +71,13 @@ class RankShiftProcessor:
         ]
         if self.analyze_top_n is not None:
             lines.append(
-                f"Drop scope baseline: old top {self.analyze_top_n} (candidates: {len(loser_scope_keys)})"
+                f"Climb scope: new top {self.analyze_top_n} by CSV rank (candidates: {len(climber_scope_keys)})"
+            )
+            lines.append(
+                f"Drop scope baseline: old top {self.analyze_top_n} by CSV rank (candidates: {len(loser_scope_keys)})"
             )
         else:
+            lines.append("Climb scope: all records")
             lines.append("Drop scope: all records")
         lines.append("")
         lines.append(
